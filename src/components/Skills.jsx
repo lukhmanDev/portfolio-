@@ -1,40 +1,43 @@
 import React, { useState } from 'react';
-import { Server, Code, Database, Cloud, Terminal, Check } from 'lucide-react';
+import { Server, Code, Database, Cloud, Smartphone, Terminal, Check } from 'lucide-react';
 
 export default function Skills() {
-  const [activeTab, setActiveTab] = useState('backend');
+  const [activeTab, setActiveTab] = useState('languages');
 
   const categories = [
-    { id: 'backend', label: 'Python Backend', icon: Server, color: '#0f172a' },
-    { id: 'frontend', label: 'Frontend React', icon: Code, color: '#0f172a' },
+    { id: 'languages', label: 'Programming Languages', icon: Terminal, color: '#0f172a' },
+    { id: 'backend', label: 'Backend Architecture', icon: Server, color: '#0f172a' },
+    { id: 'frontend', label: 'Frontend & Mobile Apps', icon: Smartphone, color: '#0f172a' },
     { id: 'database', label: 'Databases & Storage', icon: Database, color: '#0f172a' },
     { id: 'devops', label: 'DevOps & Tools', icon: Cloud, color: '#0f172a' },
   ];
 
   const skillData = {
-    backend: [
+    languages: [
       { name: 'Python 3.12+', level: '95%', desc: 'Core language, OOP, AsyncIO, Generators, Decorators' },
+      { name: 'JavaScript (ES6+)', level: '92%', desc: 'Async/Await, Promises, Event Loop, Closures, DOM' },
+      { name: 'TypeScript', level: '90%', desc: 'Static Typing, Interfaces, Generics, Strong Type Safety' },
+      { name: 'PHP 8+', level: '78%', desc: 'Server-side scripting, OOP, Composer, Modern PHP' },
+      { name: 'Dart', level: '50%', desc: 'Sound Null Safety, Asynchronous Programming, Flutter Engine' },
+    ],
+    backend: [
       { name: 'Django / DRF', level: '92%', desc: 'Full-stack architecture, ORM, Auth, Serializers' },
       { name: 'FastAPI', level: '90%', desc: 'Asynchronous APIs, Pydantic, OpenAPI schemas' },
-      { name: 'Flask', level: '85%', desc: 'Lightweight services, Blueprints, Microservices' },
+      { name: 'Laravel / PHP', level: '78%', desc: 'MVC Architecture, Eloquent ORM, Blade, REST APIs' },
       { name: 'REST & GraphQL', level: '94%', desc: 'JSON API design, JWT authentication, Graphene' },
-      { name: 'Celery & Redis', level: '88%', desc: 'Background task queues, scheduled cron jobs' },
-      { name: 'Pytest & Testing', level: '86%', desc: 'Automated test suites, mocking, integration' },
     ],
     frontend: [
+      { name: 'Next.js', level: '92%', desc: 'App Router, SSR, SSG, Server Components, API routes' },
       { name: 'React.js', level: '90%', desc: 'Hooks, Custom Hooks, Functional Components, Virtual DOM' },
+      { name: 'Flutter & Dart', level: '54%', desc: 'Cross-platform mobile apps for iOS & Android, Native Widgets' },
       { name: 'JavaScript (ES6+)', level: '92%', desc: 'Async/Await, Promises, Closures, DOM' },
-      { name: 'HTML5 & CSS3', level: '95%', desc: 'Semantic layouts, Flexbox, Grid, Animations, Mobile' },
-      { name: 'Vite & Build Tools', level: '88%', desc: 'Fast HMR, bundle optimization, environment vars' },
-      { name: 'State Management', level: '85%', desc: 'React Context API, Redux Toolkit, Zustand' },
-      { name: 'Axios / Fetch API', level: '94%', desc: 'Interceptors, error handling, live updates' },
+      { name: 'HTML5 & CSS3', level: '95%', desc: 'Semantic layouts, Flexbox, Grid, Animations, Responsive' },
     ],
     database: [
       { name: 'PostgreSQL', level: '90%', desc: 'Complex SQL queries, indexing, foreign keys, migrations' },
       { name: 'Django ORM / SQLAlchemy', level: '92%', desc: 'Query optimization, select_related, prefetch_related' },
       { name: 'Redis', level: '88%', desc: 'In-memory caching, pub/sub, session storage' },
       { name: 'MySQL', level: '85%', desc: 'Relational design, normalization, transactions' },
-      { name: 'MongoDB', level: '80%', desc: 'NoSQL document storage, aggregation pipelines' },
     ],
     devops: [
       { name: 'Docker & Compose', level: '88%', desc: 'Multi-stage builds, containerization, microservices' },

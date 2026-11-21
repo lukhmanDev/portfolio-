@@ -4,53 +4,70 @@ import { Briefcase, Calendar, MapPin, CheckCircle, Sparkles, Award } from 'lucid
 export default function Experience() {
   const timelineRef = useRef(null);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [activeCards, setActiveCards] = useState([true, false, false]);
+  const [activeCards, setActiveCards] = useState([true, false, false, false]);
 
   const experiences = [
     {
-      role: 'Senior Software Engineer',
-      company: 'Tech Stack Solutions',
-      period: '2024 - Present',
-      location: 'Remote / India',
+      role: 'Software Engineer',
+      company: 'ZilMoney',
+      period: 'November 2026 - Present',
+      location: 'India',
       badge: 'CURRENT ROLE',
-      desc: 'Architecting high-throughput backend services using FastAPI and Django while developing responsive client dashboards with React.js.',
+      desc: 'Engineering robust and scalable Laravel backend services, high-performance financial APIs, payment processing workflows, and database architecture at ZilMoney.',
       achievements: [
-        'Optimized PostgreSQL query executions using Django select_related & Redis cache layer, reducing response latency by 45%.',
-        'Built full-stack real-time analytics monitoring suite with WebSockets and React frontend.',
-        'Mentored junior engineers and led code review standards for microservice architecture.',
+        'Architecting and scaling backend services, payment workflows, and core business logic using Laravel & PHP 8+.',
+        'Engineering secure, high-throughput RESTful APIs with efficient database query optimization and caching strategies.',
+        'Collaborating with cross-functional engineering teams to deliver robust enterprise fintech solutions.',
       ],
-      skills: ['Python 3.12', 'FastAPI', 'Django REST', 'React.js', 'PostgreSQL', 'Redis', 'Docker'],
+      skills: ['PHP 8+', 'Laravel', 'MySQL', 'REST APIs', 'Payment Gateways', 'Redis', 'Git'],
       gradient: 'linear-gradient(135deg, rgba(15, 23, 42, 0.06) 0%, rgba(30, 41, 59, 0.04) 100%)',
       accentColor: '#0f172a',
     },
     {
-      role: 'Backend Systems Developer',
-      company: 'DataFlow Systems',
-      period: '2022 - 2024',
+      role: 'Laravel Developer',
+      company: 'Digibeat',
+      period: 'June 2026 - November 2026',
       location: 'India',
-      badge: '2 YEARS EXP',
-      desc: 'Focused on server-side architecture, RESTful API design, database schema modeling, and asynchronous task processing.',
+      badge: 'FULL-TIME',
+      desc: 'Engineering scalable Laravel web applications, RESTful API services, Eloquent ORM database modeling, and backend server architecture at Digibeat.',
       achievements: [
-        'Developed Celery worker pipelines handling asynchronous document exports and email notifications.',
-        'Containerized 8 microservices using Docker Compose and deployed to Linux servers via Nginx reverse proxy.',
-        'Integrated multi-provider OAuth2 authentication and JWT token security flow.',
+        'Developing core web application modules and high-performance REST APIs using Laravel & PHP 8+.',
+        'Optimizing database queries, caching strategies, and secure token authentication for enterprise web services.',
+        'Collaborating with frontend and product teams to deliver seamless API integrations.',
       ],
-      skills: ['Python', 'Django', 'Flask', 'Celery', 'MySQL', 'Docker', 'Linux', 'Git'],
+      skills: ['PHP 8+', 'Laravel', 'MySQL', 'REST APIs', 'Eloquent ORM', 'Redis', 'Git'],
       gradient: 'linear-gradient(135deg, rgba(15, 23, 42, 0.06) 0%, rgba(30, 41, 59, 0.04) 100%)',
       accentColor: '#0f172a',
     },
     {
-      role: 'Full Stack Web Developer',
-      company: 'Digital Core Innovations',
-      period: '2021 - 2022',
-      location: 'India',
-      badge: 'FOUNDATIONAL ROLE',
-      desc: 'Developed web applications for enterprise clients using Python backend scripts and modern frontend HTML/CSS/JavaScript.',
+      role: 'Django Developer Intern',
+      company: 'Luminar Technolab',
+      period: '2025 - May 2026',
+      location: 'Kochi, India',
+      badge: 'INTERNSHIP',
+      desc: 'Specialized Python & Django full-stack web development internship focusing on server architecture, REST API design, ORM query optimization, and web application engineering.',
       achievements: [
-        'Delivered 15+ client web applications with zero downtime deployment.',
-        'Converted legacy desktop client workflows into modern browser-accessible React interfaces.',
+        'Built production-grade Django web applications with user authentication, role-based access control, and PostgreSQL data persistence.',
+        'Implemented Django REST Framework (DRF) serializers, custom viewsets, and token-based authentication workflows.',
+        'Engineered responsive web templates integrated with backend Python services and database queries.',
       ],
-      skills: ['Python', 'JavaScript', 'React.js', 'HTML5', 'CSS3', 'REST APIs', 'SQL'],
+      skills: ['Python 3.12', 'Django', 'Django REST', 'PostgreSQL', 'SQLite', 'HTML5/CSS3', 'Git'],
+      gradient: 'linear-gradient(135deg, rgba(15, 23, 42, 0.06) 0%, rgba(30, 41, 59, 0.04) 100%)',
+      accentColor: '#0f172a',
+    },
+    {
+      role: 'Full Stack Engineer & Independent Developer',
+      company: 'Self-Employed (Personal & Client Projects)',
+      period: '2024 - 2025',
+      location: 'Remote / India',
+      badge: 'SELF-EMPLOYED',
+      desc: 'Architecting scalable web applications, RESTful APIs, and mobile apps using Python (Django & FastAPI), Laravel, React, Next.js, and Flutter for personal products and clients.',
+      achievements: [
+        'Built and delivered 10+ full-stack web & mobile applications with Django REST, FastAPI, Next.js, and Flutter.',
+        'Designed optimized PostgreSQL & MySQL database schemas with Redis caching layer for fast response times.',
+        'Containerized microservices using Docker Compose and deployed to Linux production servers with Nginx.',
+      ],
+      skills: ['Python', 'Django', 'FastAPI', 'Laravel', 'Next.js', 'React.js', 'Flutter', 'PostgreSQL', 'Docker'],
       gradient: 'linear-gradient(135deg, rgba(15, 23, 42, 0.06) 0%, rgba(30, 41, 59, 0.04) 100%)',
       accentColor: '#0f172a',
     },
@@ -115,37 +132,6 @@ export default function Experience() {
           <h2 style={{ fontSize: '2.4rem', fontWeight: 600, letterSpacing: '-0.025em', marginTop: '4px' }}>
             Work <span className="gradient-text-blue">Experience</span>
           </h2>
-          
-          {/* Interactive Scroll Progress Indicator Badge */}
-          <div
-            style={{
-              marginTop: '14px',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '10px',
-              background: '#ffffff',
-              border: '1px solid var(--border-color)',
-              padding: '6px 16px',
-              borderRadius: '20px',
-              fontSize: '0.8rem',
-              color: 'var(--text-muted)',
-              fontFamily: 'var(--font-mono)',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
-            }}
-          >
-            <span>TIMELINE PROGRESS:</span>
-            <div style={{ width: '80px', height: '6px', background: '#e2e8f0', borderRadius: '3px', overflow: 'hidden' }}>
-              <div
-                style={{
-                  width: `${Math.round(scrollProgress * 100)}%`,
-                  height: '100%',
-                  background: 'linear-gradient(90deg, #0f172a, #475569)',
-                  transition: 'width 0.15s ease-out',
-                }}
-              />
-            </div>
-            <span style={{ color: '#0f172a', fontWeight: 700 }}>{Math.round(scrollProgress * 100)}%</span>
-          </div>
 
           <div
             style={{

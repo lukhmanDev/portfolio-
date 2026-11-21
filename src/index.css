@@ -63,6 +63,7 @@ h1, h2, h3, h4, h5, h6 {
 .gradient-text-gold {
   color: #000000;
   background: none;
+  background-clip: unset;
   -webkit-background-clip: unset;
   -webkit-text-fill-color: #000000;
 }
@@ -298,6 +299,11 @@ h1, h2, h3, h4, h5, h6 {
    COMPREHENSIVE MOBILE & TABLET RESPONSIVE AUDIT RULES
    ========================================================================== */
 
+/* Hero Badge Column & ID Badge Responsive */
+.hero-badge-col {
+  padding-top: 60px;
+}
+
 @media (max-width: 1024px) {
   .hero-grid {
     grid-template-columns: 1fr !important;
@@ -313,6 +319,10 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     width: 100% !important;
     max-width: 100% !important;
+  }
+
+  .hero-badge-col {
+    padding-top: 8px !important;
   }
 
   .hero-role-wrapper {
@@ -333,6 +343,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
+  /* Hide the long ceiling lanyard strap on mobile so it doesn't cross over hero text */
+  .desktop-lanyard-ribbon {
+    display: none !important;
+  }
+
+  .id-card-assembly {
+    margin-top: 0 !important;
+  }
+
   .spotlight-follower {
     display: none !important;
   }
@@ -419,6 +438,30 @@ h1, h2, h3, h4, h5, h6 {
 
   .glass-card-static {
     padding: 20px !important;
+  }
+
+  .id-card-root {
+    max-width: 295px !important;
+  }
+
+  .id-card-shell {
+    padding: 16px !important;
+    border-radius: 20px !important;
+  }
+
+  .id-card-photo-wrap {
+    height: 215px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .whatsapp-float-container {
+    bottom: 16px !important;
+    right: 16px !important;
+  }
+
+  .whatsapp-float-btn {
+    padding: 10px 16px !important;
+    font-size: 0.82rem !important;
   }
 }
 

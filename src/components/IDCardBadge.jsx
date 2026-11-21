@@ -151,6 +151,7 @@ export default function IDCardBadge() {
 
   return (
     <div
+      className="id-card-root"
       style={{
         position: 'relative',
         width: '100%',
@@ -164,100 +165,104 @@ export default function IDCardBadge() {
         zIndex: 10,
       }}
     >
-      {/* Dynamic Lanyard Ribbon */}
-      <svg
-        style={{
-          position: 'absolute',
-          top: '-180px',
-          left: 0,
-          width: '100%',
-          height: '240px',
-          overflow: 'visible',
-          pointerEvents: 'none',
-          zIndex: 1,
-        }}
-      >
-        <defs>
-          <linearGradient id="lanyardRibbonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#0f172a" />
-            <stop offset="40%" stopColor="#1e293b" />
-            <stop offset="70%" stopColor="#0f172a" />
-            <stop offset="100%" stopColor="#000000" />
-          </linearGradient>
-          <linearGradient id="metallicSilver" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#ffffff" />
-            <stop offset="50%" stopColor="#cbd5e1" />
-            <stop offset="100%" stopColor="#64748b" />
-          </linearGradient>
-          <filter id="ribbonShadow" x="-30%" y="-30%" width="160%" height="160%">
-            <feGaussianBlur stdDeviation="4" result="blur" />
-            <feComposite in="SourceGraphic" in2="blur" operator="over" />
-          </filter>
-        </defs>
+      {/* Dynamic Lanyard Ribbon (Desktop Only) */}
+      {!isMobile && (
+        <svg
+          className="desktop-lanyard-ribbon"
+          style={{
+            position: 'absolute',
+            top: '-180px',
+            left: 0,
+            width: '100%',
+            height: '240px',
+            overflow: 'visible',
+            pointerEvents: 'none',
+            zIndex: 1,
+          }}
+        >
+          <defs>
+            <linearGradient id="lanyardRibbonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#0f172a" />
+              <stop offset="40%" stopColor="#1e293b" />
+              <stop offset="70%" stopColor="#0f172a" />
+              <stop offset="100%" stopColor="#000000" />
+            </linearGradient>
+            <linearGradient id="metallicSilver" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#ffffff" />
+              <stop offset="50%" stopColor="#cbd5e1" />
+              <stop offset="100%" stopColor="#64748b" />
+            </linearGradient>
+            <filter id="ribbonShadow" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="4" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+          </defs>
 
-        {/* Top Ceiling Fixed Chrome Anchor Ring */}
-        <circle cx={anchorX} cy={0} r="8" fill="url(#metallicSilver)" stroke="#0f172a" strokeWidth="1.5" />
-        <circle cx={anchorX} cy={0} r="4" fill="#0f172a" />
+          {/* Top Ceiling Fixed Chrome Anchor Ring */}
+          <circle cx={anchorX} cy={0} r="8" fill="url(#metallicSilver)" stroke="#0f172a" strokeWidth="1.5" />
+          <circle cx={anchorX} cy={0} r="4" fill="#0f172a" />
 
-        {/* Soft Ambient Shadow */}
-        <path
-          d={`M ${anchorX} 0 Q ${ctrlX} ${ctrlY + 180} ${clipX} ${clipY + 180}`}
-          fill="none"
-          stroke="rgba(0, 0, 0, 0.12)"
-          strokeWidth={16}
-          strokeLinecap="round"
-        />
+          {/* Soft Ambient Shadow */}
+          <path
+            d={`M ${anchorX} 0 Q ${ctrlX} ${ctrlY + 180} ${clipX} ${clipY + 180}`}
+            fill="none"
+            stroke="rgba(0, 0, 0, 0.12)"
+            strokeWidth={16}
+            strokeLinecap="round"
+          />
 
-        {/* Outer Dark Ribbon Edge Border */}
-        <path
-          d={`M ${anchorX} 0 Q ${ctrlX} ${ctrlY + 180} ${clipX} ${clipY + 180}`}
-          fill="none"
-          stroke="#090d16"
-          strokeWidth={12}
-          strokeLinecap="round"
-        />
+          {/* Outer Dark Ribbon Edge Border */}
+          <path
+            d={`M ${anchorX} 0 Q ${ctrlX} ${ctrlY + 180} ${clipX} ${clipY + 180}`}
+            fill="none"
+            stroke="#090d16"
+            strokeWidth={12}
+            strokeLinecap="round"
+          />
 
-        {/* Premium Dark Woven Fabric Core Ribbon */}
-        <path
-          d={`M ${anchorX} 0 Q ${ctrlX} ${ctrlY + 180} ${clipX} ${clipY + 180}`}
-          fill="none"
-          stroke="url(#lanyardRibbonGrad)"
-          strokeWidth={9.5}
-          strokeLinecap="round"
-        />
+          {/* Premium Dark Woven Fabric Core Ribbon */}
+          <path
+            d={`M ${anchorX} 0 Q ${ctrlX} ${ctrlY + 180} ${clipX} ${clipY + 180}`}
+            fill="none"
+            stroke="url(#lanyardRibbonGrad)"
+            strokeWidth={9.5}
+            strokeLinecap="round"
+          />
 
-        {/* Dual Parallel Silver Micro-Stitching Threads */}
-        <path
-          d={`M ${anchorX} 0 Q ${ctrlX} ${ctrlY + 180} ${clipX} ${clipY + 180}`}
-          fill="none"
-          stroke="#cbd5e1"
-          strokeWidth="1"
-          strokeDasharray="4 4"
-          strokeLinecap="round"
-          opacity={0.85}
-        />
-        <path
-          d={`M ${anchorX} 0 Q ${ctrlX} ${ctrlY + 180} ${clipX} ${clipY + 180}`}
-          fill="none"
-          stroke="#ffffff"
-          strokeWidth="0.8"
-          strokeDasharray="2 6"
-          strokeLinecap="round"
-          opacity={0.6}
-        />
-      </svg>
+          {/* Dual Parallel Silver Micro-Stitching Threads */}
+          <path
+            d={`M ${anchorX} 0 Q ${ctrlX} ${ctrlY + 180} ${clipX} ${clipY + 180}`}
+            fill="none"
+            stroke="#cbd5e1"
+            strokeWidth="1"
+            strokeDasharray="4 4"
+            strokeLinecap="round"
+            opacity={0.85}
+          />
+          <path
+            d={`M ${anchorX} 0 Q ${ctrlX} ${ctrlY + 180} ${clipX} ${clipY + 180}`}
+            fill="none"
+            stroke="#ffffff"
+            strokeWidth="0.8"
+            strokeDasharray="2 6"
+            strokeLinecap="round"
+            opacity={0.6}
+          />
+        </svg>
+      )}
 
       {/* ID Card Assembly */}
       <div
         ref={cardRef}
+        className="id-card-assembly"
         onMouseDown={handleMouseDown}
         style={{
           transform: isMobile ? 'none' : `translate(${pos.x}px, ${pos.y}px) rotate(${rotation}deg)`,
           transformOrigin: 'top center',
-          cursor: isMobile ? 'default' : isDragging ? 'grabbing' : 'grab',
+          cursor: isMobile ? 'pointer' : isDragging ? 'grabbing' : 'grab',
           transition: isDragging ? 'none' : 'box-shadow 0.3s ease',
           willChange: 'transform',
-          marginTop: '8px',
+          marginTop: isMobile ? '0px' : '8px',
           position: 'relative',
           width: '100%',
           maxWidth: '320px',
@@ -287,6 +292,13 @@ export default function IDCardBadge() {
 
         {/* ID Card Outer Shell */}
         <div
+          className="id-card-shell"
+          onClick={() => {
+            if (isMobile) {
+              setSparkle(true);
+              setTimeout(() => setSparkle(false), 900);
+            }
+          }}
           style={{
             width: '100%',
             background: 'linear-gradient(145deg, #ffffff 0%, #f8fafc 100%)',
@@ -348,6 +360,7 @@ export default function IDCardBadge() {
 
           {/* Portrait Photo Container */}
           <div
+            className="id-card-photo-wrap"
             style={{
               width: '100%',
               height: '240px',
@@ -361,7 +374,11 @@ export default function IDCardBadge() {
           >
             <img
               src="/lukhman.jpg"
-              alt="Lukhmanul Hakkeem ID Portrait"
+              alt="Lukhmanul Hakkeem - Full Stack & Laravel Developer Profile Photo"
+              loading="eager"
+              decoding="async"
+              width="320"
+              height="240"
               style={{
                 width: '100%',
                 height: '100%',
@@ -378,7 +395,7 @@ export default function IDCardBadge() {
               Lukhmanul Hakkeem
             </h3>
             <p style={{ fontSize: '0.82rem', color: '#475569', fontWeight: 600, fontFamily: 'var(--font-mono)' }}>
-              Senior Software Engineer
+              Full-Stack Developer
             </p>
           </div>
 
@@ -395,8 +412,8 @@ export default function IDCardBadge() {
             }}
           >
             <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', textAlign: 'left' }}>
-              <span style={{ fontSize: '0.65rem', color: '#64748b', fontFamily: 'var(--font-mono)' }}>DEVELOPER BADGE</span>
-              <span style={{ fontSize: '0.82rem', color: '#0f172a', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>SOFTWARE ARCHITECT</span>
+              <span style={{ fontSize: '0.65rem', color: '#64748b', fontFamily: 'var(--font-mono)' }}>DEVELOPER ID</span>
+              <span style={{ fontSize: '0.82rem', color: '#0f172a', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>BACKEND ENGINEER</span>
             </div>
 
             {/* Simulated Barcode Stripes */}

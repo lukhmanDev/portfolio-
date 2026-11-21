@@ -3,8 +3,8 @@ import { Database, ShieldCheck, Cpu, Server, Globe, Award, CheckCircle2 } from '
 
 export default function About() {
   const stats = [
-    { value: '4+', label: 'Years Experience' },
-    { value: '50+', label: 'Projects Completed' },
+    { value: '2+', label: 'Years Experience' },
+    { value: '10+', label: 'Projects Completed' },
     { value: '99.9%', label: 'API Architecture Uptime' },
     { value: '100k+', label: 'Lines of Clean Code' },
   ];
@@ -13,7 +13,7 @@ export default function About() {
     {
       icon: Server,
       title: 'Backend Systems Architecture',
-      desc: 'Expertise in building high-throughput RESTful & GraphQL APIs with FastAPI, Django, Flask, and ORM optimizations.',
+      desc: 'Expertise in building high-throughput RESTful & GraphQL APIs with FastAPI, Django, and ORM optimizations.',
       color: '#0f172a',
     },
     {
@@ -91,7 +91,7 @@ export default function About() {
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
               {[
-                'Django & FastAPI Architecture',
+                'Django, FastAPI & Laravel',
                 'React & Modern JS',
                 'PostgreSQL & Redis Caching',
                 'RESTful & Async APIs',

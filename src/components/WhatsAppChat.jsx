@@ -16,6 +16,7 @@ export default function WhatsAppChat() {
 
   return (
     <div
+      className="whatsapp-float-container"
       style={{
         position: 'fixed',
         bottom: '24px',
@@ -86,7 +87,7 @@ export default function WhatsAppChat() {
                   Lukhmanul Hakkeem <CheckCircle2 size={14} color="#38bdf8" />
                 </div>
                 <div style={{ fontSize: '0.74rem', color: '#94a3b8', fontWeight: 500, fontFamily: 'var(--font-mono)' }}>
-                  Software Architect • Online
+                  Backend Engineer • Online
                 </div>
               </div>
             </div>
@@ -304,6 +305,7 @@ export default function WhatsAppChat() {
       {/* Floating Action Trigger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
+        className="whatsapp-float-btn"
         style={{
           display: 'flex',
           alignItems: 'center',

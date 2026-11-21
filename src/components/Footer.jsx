@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowUp } from 'lucide-react';
 
-export default function Footer() {
+export default function Footer({ onOpenCreativeWorld }) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -43,7 +43,7 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', alignItems: 'center' }}>
             {['Home', 'About', 'Skills', 'Projects', 'Experience', 'Contact'].map((item) => (
               <a
                 key={item}
@@ -60,6 +60,29 @@ export default function Footer() {
                 {item}
               </a>
             ))}
+
+            <button
+              onClick={() => {
+                if (onOpenCreativeWorld) onOpenCreativeWorld();
+                else window.location.hash = 'creative-world';
+              }}
+              style={{
+                background: 'none',
+                border: 'none',
+                padding: 0,
+                color: 'var(--text-muted)',
+                textDecoration: 'none',
+                fontSize: '0.88rem',
+                fontFamily: 'inherit',
+                cursor: 'pointer',
+                transition: 'color 0.2s ease',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = '#0f172a')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}
+              title="Open Creative World Showcase"
+            >
+              Creative
+            </button>
           </div>
 
           {/* Back to top button */}

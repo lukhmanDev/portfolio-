@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Mail, Code, Terminal as TerminalIcon, Server, Layers, Sparkles } from 'lucide-react';
+import { Mail, Code, Terminal as TerminalIcon, Server, Layers } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 import IDCardBadge from './IDCardBadge';
-import GithubContributions from './GithubContributions';
 
 export default function Hero() {
   const roles = [
-    'Senior Software Engineer',
+    'Full-Stack Developer',
     'Django & FastAPI Architect',
-    'Full Stack Web Developer',
+    'Backend Engineer',
     'Scalable API & Cloud Specialist',
   ];
 
@@ -79,8 +78,9 @@ export default function Hero() {
                 fontWeight: 450,
               }}
             >
-              Building high-performance backend systems with <strong style={{ color: '#0f172a' }}>Django & FastAPI</strong> and modern web apps with <strong style={{ color: '#0f172a' }}>React</strong>.
+              Currently building innovative financial and digital solutions at <strong style={{ color: '#0f172a' }}>ZilMoney</strong> as a <strong style={{ color: '#0f172a' }}>Software Engineer</strong> (Laravel Backend). Passionate about developing scalable applications, powerful APIs, and seamless user experiences using Laravel, Django, FastAPI, React, Next.js, and Flutter.
             </p>
+
 
             {/* Social Links */}
             <div
@@ -140,12 +140,12 @@ export default function Hero() {
 
           {/* Right Column: Dynamic Elastic Hanging ID Card Badge */}
           <div
+            className="hero-badge-col"
             style={{
               position: 'relative',
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              paddingTop: '60px',
             }}
           >
             {/* Ambient Backlight Glow */}
@@ -167,11 +167,6 @@ export default function Hero() {
             {/* Hanging Elastic ID Badge Component */}
             <IDCardBadge />
           </div>
-        </div>
-
-        {/* Full-Width GitHub Profile Contribution Heatmap Section */}
-        <div style={{ marginTop: '50px', width: '100%' }}>
-          <GithubContributions />
         </div>
       </div>
     </section>
